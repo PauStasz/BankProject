@@ -6,13 +6,11 @@ namespace PB.Projekt.Bank
     {
         private List<Operacja> operacje;
         private List<Klient> listaKlientow;
-        private List<Bank> listaBankow;
 
         public CentrumObslugi()
         {
             operacje = new List<Operacja>();
             listaKlientow = new List<Klient>();
-            listaBankow = new List<Bank>();
         }
 
         public bool AutoryzujPlatnosc(double kwota, Karta karta)
@@ -44,19 +42,9 @@ namespace PB.Projekt.Bank
             listaKlientow.Add(klient);
         }
 
-        public void DodajBank(Bank bank)
-        {
-            listaBankow.Add(bank);
-        }
-
-    public List<Klient> PrzegladKlientow()
+        public List<Klient> PrzegladKlientow()
         {
             return listaKlientow;
-        }
-
-        public List<Bank> PrzegladBankow()
-        {
-            return listaBankow;
         }
 
         public bool PrzeszukajArchiwum(string nazwaPliku, object szukany)

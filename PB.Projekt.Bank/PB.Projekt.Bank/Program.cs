@@ -15,7 +15,6 @@ public class Program
             WyswietlMenu();
             WyswietlZakladke(WczytajWybor(1, 6));
         }
-        //test
     }
 
     public static void UtworzPrzykladoweObiekty()
@@ -27,11 +26,12 @@ public class Program
 
         centrumObslugi.DodajKlienta(osoba1);
         centrumObslugi.DodajKlienta(firma1);
-        centrumObslugi.DodajBank(bank1);
+        centrumObslugi.DodajKlienta(bank1);
     }
 
     public static void WyswietlMenu()
     {
+        Console.Clear();
         Console.WriteLine("==========MENU==========");
         Console.WriteLine("1. Klienci");
         Console.WriteLine("2. Karty");
@@ -40,6 +40,7 @@ public class Program
         Console.WriteLine("5. Zapisz Stan ");
         Console.WriteLine("5. Wczytaj Stan ");
         Console.WriteLine("6. Zamknij program ");
+        Console.WriteLine("========================");
     }
 
     //prosi uzytkownika o wybranie opcji z zakresu podanego jako argumenty 
@@ -49,7 +50,7 @@ public class Program
 
         while (true)
         {
-            Console.WriteLine("Wybór:");
+            Console.WriteLine("\nWybór:");
             liczba = Int32.Parse(Console.ReadLine());
             if (liczba < min || liczba > max)
                 Console.WriteLine("Niepoprawny wybór!");
@@ -91,49 +92,43 @@ public class Program
     //wyswietlanie zakladki firmy
     public static void Klienci()
     {
-        int index = 1;
         Console.WriteLine("Banki:");
-        foreach (var bank in centrumObslugi.PrzegladBankow())
-        {
-
-            Console.WriteLine($"{index++}. {bank.Nazwa}");
-            
-        }
-        index = 1;
+        WyswietlKlientow<Bank>();
 
         Console.WriteLine("Firmy:");
-        foreach (var firma in centrumObslugi.PrzegladKlientow())
-        {
-            if (firma is Firma)
-                Console.WriteLine($"{index++}. {firma}");
-        }
+        WyswietlKlientow<Firma>();
 
-        index = 1;
         Console.WriteLine("Osoby fizyczne:");
-        foreach (var osobafizyczna in centrumObslugi.PrzegladKlientow())
-        {
-            if (osobafizyczna is OsobaFizyczna)
-                Console.WriteLine($"{index++}. {osobafizyczna}"); ;
-        }
+        WyswietlKlientow<OsobaFizyczna>();
 
-
+        Console.WriteLine("\nCo chcesz zrobić?:\n");
         Console.WriteLine("1. Dodaj Klienta");
-        Console.WriteLine("2. Usun Klient");
-        Console.WriteLine("3. Dodaj Bank");
-        Console.WriteLine("4. Usun Bank");
+        Console.WriteLine("2. Usuń Bank");
+        Console.WriteLine("3. Usuń Firmę");
+        Console.WriteLine("4. Usuń Osobę fizyczną");
+
         switch(WczytajWybor(1, 4))
         {
             case 1:
                 DodajKlienta();
                 break;
             case 2:
-                UsunKlienta();
+                //UsunBank() <- użyć tego jak będzie zrobiona obsługa wyjątku (analogicznie w reszcie przypadków poniżej)
+                Console.WriteLine("Podaj nazwę banku:");
+                UsunKlienta<Bank>(Console.ReadLine());
                 break;
             case 3:
-                DodajBank();
+                Console.WriteLine("Podaj nazwę firmy:");
+                UsunKlienta<Firma>(Console.ReadLine());
                 break;
             case 4:
-                UsunBank();
+                string nazwa = "";
+                Console.WriteLine("Podaj imię:");
+                nazwa += Console.ReadLine() + " ";
+                Console.WriteLine("Podaj nazwisko:");
+                nazwa += Console.ReadLine();
+
+                UsunKlienta<OsobaFizyczna>(nazwa);
                 break;
             default:
 
@@ -141,29 +136,62 @@ public class Program
         }
     }
 
+    /*  fukcja z obsługą wyjątku 
+    public static void UsunBank()
+    {
+        try
+        {
+            Console.WriteLine("Podaj nazwę banku:");
+            UsunKlienta<Bank>(Console.ReadLine());
+        }
+        catch (Exception ex) // nazwa wyjątku oczywiście do zmiany
+        {
+            Console.WriteLine(ex.Message);
+            //tutaj albo znowu wywołać funkcje UsunBank() do skutku, 
+            //tylko wtedy warto dodać jakiś sposób na anulowanie usuwania
+        }
+    }
+    */
+
+
+    //wyświetla klientów o podanym typie
+    public static void WyswietlKlientow<T>()
+    {
+        int index = 1;
+        foreach (var klient in centrumObslugi.PrzegladKlientow())
+        {
+            if (klient is T)
+                Console.WriteLine($"{index++}. {klient}");
+        }
+    }
+
     //funkcjonalnosc dodawania klienta
     public static void DodajKlienta()
     {
+        Console.Clear();
         //formularz tworzenia klienta
+        //  wybór jaki typ klienta
+        //  na podstawie wyboru poproszenie o odpowiednie dane
+        //utworzenie obiektu 
         //dodanie klienta do centrum obslugi
     }
 
-    //funkcjonalnosc usuwania klienta
-    public static void UsunKlienta()
+    //usuwa klienta o podanym typie i nazwie
+    public static void UsunKlienta<T>(string nazwa)
     {
-        //poproszenie uzytkownika o 
-    }
-
-    //funkcjonalnosc dodawania banku
-    public static void DodajBank()
-    {
-
-    }
-
-    //funkcjonalnosc usuwania klienta
-    public static void UsunBank()
-    {
-
+        foreach (var klient in centrumObslugi.PrzegladKlientow().ToList())
+        {
+            if (klient is T)
+            {
+                if (klient.ToString() == nazwa)
+                {
+                    centrumObslugi.UsunKlienta(klient);
+                    return;
+                }   
+            }
+        }
+        //te exeption trzeba podmienić tzn. zrobić własną klase z odpowiednią nazwą
+        throw new Exception("Brak klienta o podanej nazwie!");
     }
 
     //wyswietlanie zakladki karty
