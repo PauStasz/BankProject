@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "PB.Projekt.Bank/1.0.0": {
+        "dependencies": {
+          "Plik": "1.0.0"
+        },
+        "runtime": {
+          "PB.Projekt.Bank.dll": {}
+        }
+      },
+      "Plik/1.0.0": {
+        "runtime": {
+          "Plik.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "PB.Projekt.Bank/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Plik/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "55635684-cc81-400c-95cb-240b06063eb5": {
+      "ProjectGuid": "55635684-cc81-400c-95cb-240b06063eb5",
+      "DisplayName": "PB.Projekt.Bank",
+      "ColorIndex": 0
+    },
+    "e73161cd-ed1e-414c-9120-0cd9837f03b8": {
+      "ProjectGuid": "e73161cd-ed1e-414c-9120-0cd9837f03b8",
+      "DisplayName": "Plik",
+      "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Różne pliki",
+      "ColorIndex": -1
+    },
+    "2361291c-fb47-4bc0-a189-7b1d58aeeffb": {
+      "ProjectGuid": "2361291c-fb47-4bc0-a189-7b1d58aeeffb",
+      "DisplayName": "Plik",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}

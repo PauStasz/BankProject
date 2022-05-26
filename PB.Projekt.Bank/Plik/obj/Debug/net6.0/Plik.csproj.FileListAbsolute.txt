@@ -1,0 +1,12 @@
+C:\Users\laptop\source\repos\PB.Projekt.Bank\Plik\bin\Debug\net6.0\Plik.deps.json
+C:\Users\laptop\source\repos\PB.Projekt.Bank\Plik\bin\Debug\net6.0\Plik.dll
+C:\Users\laptop\source\repos\PB.Projekt.Bank\Plik\bin\Debug\net6.0\ref\Plik.dll
+C:\Users\laptop\source\repos\PB.Projekt.Bank\Plik\bin\Debug\net6.0\Plik.pdb
+C:\Users\laptop\source\repos\PB.Projekt.Bank\Plik\obj\Debug\net6.0\Plik.csproj.AssemblyReference.cache
+C:\Users\laptop\source\repos\PB.Projekt.Bank\Plik\obj\Debug\net6.0\Plik.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\laptop\source\repos\PB.Projekt.Bank\Plik\obj\Debug\net6.0\Plik.AssemblyInfoInputs.cache
+C:\Users\laptop\source\repos\PB.Projekt.Bank\Plik\obj\Debug\net6.0\Plik.AssemblyInfo.cs
+C:\Users\laptop\source\repos\PB.Projekt.Bank\Plik\obj\Debug\net6.0\Plik.csproj.CoreCompileInputs.cache
+C:\Users\laptop\source\repos\PB.Projekt.Bank\Plik\obj\Debug\net6.0\Plik.dll
+C:\Users\laptop\source\repos\PB.Projekt.Bank\Plik\obj\Debug\net6.0\ref\Plik.dll
+C:\Users\laptop\source\repos\PB.Projekt.Bank\Plik\obj\Debug\net6.0\Plik.pdb
