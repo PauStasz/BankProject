@@ -15,7 +15,7 @@ public class Program
             WyswietlMenu();
             WyswietlZakladke(WczytajWybor(1, 6));
         }
-        
+        //test
     }
 
     public static void UtworzPrzykladoweObiekty()
